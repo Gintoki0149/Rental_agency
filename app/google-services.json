@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "682404450155",
+    "project_id": "rental-agency-11805",
+    "storage_bucket": "rental-agency-11805.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:682404450155:android:41ee948110a3fa9b78462e",
+        "android_client_info": {
+          "package_name": "com.example.rentalagency"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_QPVBdsojUle3g9Vvz9_y61GAMdI49Tg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
