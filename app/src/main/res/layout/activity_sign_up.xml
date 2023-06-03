@@ -7,6 +7,7 @@
     tools:context=".SignUpActivity">
 
     <ScrollView
+        android:layout_marginTop="50dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -18,7 +19,8 @@
             <TextView
                 android:id="@+id/first_name"
                 android:layout_width="wrap_content"
-                android:layout_height="0dp"
+                android:gravity="center"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="25dp"
                 android:layout_weight="1"
                 android:text="First Name"
@@ -28,6 +30,7 @@
 
             <EditText
                 android:id="@+id/firstnameedittext"
+                android:gravity="left"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -38,8 +41,9 @@
 
             <TextView
                 android:id="@+id/last_name"
+                android:gravity="center"
                 android:layout_width="wrap_content"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginBottom="25dp"
                 android:layout_weight="1"
@@ -49,8 +53,9 @@
 
             <EditText
                 android:id="@+id/lastnameedittext"
+                android:gravity="left"
                 android:layout_width="wrap_content"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginBottom="25dp"
                 android:layout_weight="1"
@@ -60,8 +65,9 @@
 
             <TextView
                 android:id="@+id/email"
+                android:gravity="center"
                 android:layout_width="wrap_content"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginBottom="25dp"
                 android:layout_weight="1"
@@ -71,8 +77,9 @@
 
             <EditText
                 android:id="@+id/emailedittext"
+                android:gravity="left"
                 android:layout_width="wrap_content"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginBottom="25dp"
                 android:layout_weight="1"
@@ -81,8 +88,9 @@
 
             <TextView
                 android:id="@+id/phone_num"
+                android:gravity="center"
                 android:layout_width="wrap_content"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginBottom="25dp"
                 android:layout_weight="1"
@@ -92,8 +100,9 @@
 
             <EditText
                 android:id="@+id/phonenumberedittext"
+                android:gravity="left"
                 android:layout_width="wrap_content"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginBottom="25dp"
                 android:layout_weight="1"
@@ -102,8 +111,9 @@
 
             <TextView
                 android:id="@+id/pwd"
+                android:gravity="center"
                 android:layout_width="wrap_content"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginBottom="25dp"
                 android:layout_weight="1"
@@ -113,8 +123,32 @@
 
             <EditText
                 android:id="@+id/pwdedittext"
+                android:gravity="left"
                 android:layout_width="wrap_content"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginBottom="25dp"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="textPassword" />
+
+            <TextView
+                android:id="@+id/reenterpwd"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginBottom="25dp"
+                android:layout_weight="1"
+                android:text="Confirm Password"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/reenterpasswordedittext"
+                android:gravity="left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginBottom="25dp"
                 android:layout_weight="1"
@@ -123,8 +157,9 @@
 
             <Button
                 android:id="@+id/submit"
+                android:gravity="center"
                 android:layout_width="wrap_content"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="153dp"
                 android:layout_marginBottom="16dp"
                 android:layout_weight="1"

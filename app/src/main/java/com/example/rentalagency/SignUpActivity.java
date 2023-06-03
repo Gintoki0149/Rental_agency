@@ -28,6 +28,7 @@ public class SignUpActivity extends AppCompatActivity {
     EditText Email;
     EditText phone;
     EditText password;
+    EditText confirmpassword;
     Button Submit;
     private FirebaseAuth auth;
     @Override
@@ -39,12 +40,13 @@ public class SignUpActivity extends AppCompatActivity {
         Email = findViewById(R.id.emailedittext);
         phone = findViewById(R.id.phonenumberedittext);
         password = findViewById(R.id.pwdedittext);
+        confirmpassword = findViewById(R.id.reenterpasswordedittext);
         Submit = findViewById(R.id.submit);
         auth  = FirebaseAuth.getInstance();
         Submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(firstname.getText()!=null && lastname.getText()!=null && Email.getText()!=null && phone.getText()!=null && password.getText()!=null){
+                if(firstname.getText().toString()!=null && lastname.getText().toString()!=null && Email.getText().toString()!=null && phone.getText().toString()!=null && password.getText().toString()!=null && confirmpassword.getText().toString()!= null && password.getText().toString().compareTo(confirmpassword.getText().toString()) == 0){
                     auth.createUserWithEmailAndPassword(Email.getText().toString(),password.getText().toString()).addOnCompleteListener(SignUpActivity.this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
@@ -75,7 +77,7 @@ public class SignUpActivity extends AppCompatActivity {
                     });
                 }
                 else{
-                    Toast.makeText(SignUpActivity.this,"All fields need to be filled.",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignUpActivity.this,"All fields need to be filled and passwords need to match",Toast.LENGTH_SHORT).show();
                 }
             }
         });
