@@ -89,7 +89,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/rentppmedittext"
+                android:id="@+id/rentedittext"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
@@ -160,7 +160,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:text="Year Of Construction"
+                android:text="Year Of Construction\n(DD/MM/YYYY)"
                 android:textSize="30dp"
                 android:textStyle="bold" />
 
@@ -202,8 +202,8 @@
                 android:textSize="30dp"
                 android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/ownerusernameedittext"
+            <TextView
+                android:id="@+id/ownerusernametextview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
