@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp">
+
+    <TextView
+        android:layout_margin="10dp"
+        android:id="@+id/addresspropertyitem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Address"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:layout_margin="10dp"
+        android:id="@+id/rentpropertyitem"
+        android:layout_below="@+id/addresspropertyitem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rent"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:layout_margin="10dp"
+        android:id="@+id/citypropertyitem"
+        android:layout_below="@id/rentpropertyitem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="City"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:layout_margin="10dp"
+        android:id="@+id/floorspropertyitem"
+        android:layout_below="@+id/citypropertyitem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Floors"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:layout_margin="10dp"
+        android:id="@+id/addresspropertyitemvalue"
+        android:layout_toEndOf="@+id/addresspropertyitem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Addressvalue"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:layout_margin="10dp"
+        android:id="@+id/rentpropertyitemvalue"
+        android:layout_below="@+id/addresspropertyitemvalue"
+        android:layout_toEndOf="@+id/rentpropertyitem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rentvalue"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:layout_margin="10dp"
+        android:id="@+id/citypropertyitemvalue"
+        android:layout_below="@id/rentpropertyitemvalue"
+        android:layout_toEndOf="@+id/citypropertyitem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cityvalue"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:layout_margin="10dp"
+        android:id="@+id/floorspropertyitemvalue"
+        android:layout_below="@+id/citypropertyitemvalue"
+        android:layout_toEndOf="@+id/rentpropertyitem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Floorvalue"
+        android:textSize="20sp"/>
+
+</RelativeLayout>

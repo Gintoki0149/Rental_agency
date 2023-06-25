@@ -56,6 +56,12 @@ public class LandingPage extends AppCompatActivity {
                 startActivity(new Intent(LandingPage.this,AddProperty.class));
             }
         });
+        rentproperty.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LandingPage.this,RentProperty.class));
+            }
+        });
         logouttextview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
