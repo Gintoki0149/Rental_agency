@@ -2,6 +2,7 @@ package com.example.rentalagency;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -11,12 +12,14 @@ import java.util.ArrayList;
 
 public class RentPropertyAdapter extends RecyclerView.Adapter<RentPropertyViewHolder>{
 
-    Context context;
-    ArrayList<Property> properties;
+    private Context context;
+    private ArrayList<Property> properties;
+    private PropertyClicked propertyClicked;
 
-    public RentPropertyAdapter(Context context, ArrayList<Property> properties) {
+    public RentPropertyAdapter(Context context, ArrayList<Property> properties, PropertyClicked propertyClicked) {
         this.context = context;
         this.properties = properties;
+        this.propertyClicked = propertyClicked;
     }
 
     @NonNull
@@ -33,6 +36,12 @@ public class RentPropertyAdapter extends RecyclerView.Adapter<RentPropertyViewHo
         holder.CityValue.setText(properties.get(position).getCity());
         holder.RentValue.setText(rentval);
         holder.FloorValue.setText(floorval);
+        holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                propertyClicked.onClick(properties.get(position));
+            }
+        });
     }
 
     @Override

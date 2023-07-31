@@ -1,6 +1,7 @@
 package com.example.rentalagency;
 
 import android.view.View;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -9,8 +10,10 @@ import androidx.recyclerview.widget.RecyclerView;
 public class RentPropertyViewHolder extends RecyclerView.ViewHolder{
     TextView Address,Rent,City,Floor;
     TextView AddressValue,RentValue,CityValue,FloorValue;
+    RelativeLayout relativeLayout;
     public RentPropertyViewHolder(@NonNull View itemView) {
         super(itemView);
+        relativeLayout = itemView.findViewById(R.id.propertyitem);
         Address = itemView.findViewById(R.id.addresspropertyitem);
         AddressValue = itemView.findViewById(R.id.addresspropertyitemvalue);
         Rent = itemView.findViewById(R.id.rentpropertyitem);

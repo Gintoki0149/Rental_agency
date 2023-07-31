@@ -77,7 +77,7 @@ public class AddProperty extends AppCompatActivity {
                 String pin = pincode.getText().toString();
                 if(allClear(addr, c, s, rent, hike, beds, floor, yoc, pin)){
                     HashMap<String,Object>mp = new HashMap<>();
-                    mp.put("Adress",addr);
+                    mp.put("Address",addr);
                     mp.put("City",c);
                     mp.put("State",s);
                     mp.put("Rent",rent);
@@ -87,7 +87,8 @@ public class AddProperty extends AppCompatActivity {
                     mp.put("Year Of Construction",yoc);
                     mp.put("Pincode",pin);
                     mp.put("Owner username",ownerusername.getText().toString());
-                    dref.child("properties").child(userId).setValue(mp).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    mp.put("Availability","available");
+                    dref.child("properties").child(userId).child(addr).setValue(mp).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if(task.isSuccessful()){

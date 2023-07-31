@@ -12,11 +12,12 @@ public class Property {
     int Rent;
     String State;
     Date yoc;
+    String status;
     public Property(){
 
     }
 
-    public Property(String address, int bedrooms, String city, int floors, int hike, String owner, int pincode, int rent, String state, Date yoc) {
+    public Property(String address, int bedrooms, String city, int floors, int hike, String owner, int pincode, int rent, String state, Date yoc, String status) {
         Address = address;
         Bedrooms = bedrooms;
         City = city;
@@ -27,6 +28,7 @@ public class Property {
         Rent = rent;
         State = state;
         this.yoc = yoc;
+        this.status = status;
     }
 
     public String getAddress() {
@@ -107,5 +109,13 @@ public class Property {
 
     public void setYoc(Date yoc) {
         this.yoc = yoc;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

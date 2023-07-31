@@ -26,7 +26,7 @@ public class LandingPage extends AppCompatActivity {
     private TextView rentproperty;
     private TextView approverentrequests;
     private TextView myrentrequests;
-    private String curuser;
+    public static String curuser;
     FirebaseAuth auth = FirebaseAuth.getInstance();
     DatabaseReference db = FirebaseDatabase.getInstance("https://rental-agency-11805-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference();
     @Override
@@ -37,6 +37,7 @@ public class LandingPage extends AppCompatActivity {
         logouttextview = findViewById(R.id.logouttv);
         addproperty = findViewById(R.id.addpropertytextview);
         rentproperty = findViewById(R.id.rentpropertytextview);
+        myrentrequests = findViewById(R.id.myrentrequeststextview);
         approverentrequests = findViewById(R.id.approverentrequeststextview);
         db.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -49,19 +50,28 @@ public class LandingPage extends AppCompatActivity {
 
             }
         });
-        myrentrequests = findViewById(R.id.myrentrequeststextview);
+
         addproperty.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(LandingPage.this,AddProperty.class));
             }
         });
+
         rentproperty.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(LandingPage.this,RentProperty.class));
             }
         });
+
+        myrentrequests.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LandingPage.this,MyRentRequests.class));
+            }
+        });
+
         logouttextview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
