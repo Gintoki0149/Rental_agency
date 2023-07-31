@@ -50,8 +50,8 @@ public class SelectedProperty extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                db.child("rent_requests").child("from").child(LandingPage.curuser).child(owner.getText().toString()).setValue(LandingPage.curuser+" has requested to rent the property at "+address.getText().toString());
-                db.child("rent_requests").child("to").child(owner.getText().toString()).child(LandingPage.curuser).setValue(LandingPage.curuser+" has requested to rent the property at "+address.getText().toString()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                db.child("rent_requests").child("from").child(LandingPage.curuser).child(owner.getText().toString().substring(8)).child(address.getText().toString().substring(10)).setValue(LandingPage.curuser+" has requested to rent the property at "+address.getText().toString());
+                db.child("rent_requests").child("to").child(owner.getText().toString().substring(8)).child(LandingPage.curuser).child(address.getText().toString().substring(10)).setValue(LandingPage.curuser+" has requested to rent the property at "+address.getText().toString()).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         Toast.makeText(SelectedProperty.this,"Request sent",Toast.LENGTH_SHORT).show();

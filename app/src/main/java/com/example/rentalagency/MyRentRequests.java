@@ -18,6 +18,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class MyRentRequests extends AppCompatActivity implements RemoveRequest{
     DatabaseReference db;
@@ -41,10 +42,12 @@ public class MyRentRequests extends AppCompatActivity implements RemoveRequest{
                 System.out.println("This is snapshot.getchildren:"+snapshot.getChildren());
                 requests.clear();
                 for(DataSnapshot snap:snapshot.getChildren()){
-                    System.out.println("This for loop is working");
                     if(snap.getKey().toString().compareTo(LandingPage.curuser) == 0){
-                        for(DataSnapshot messages: snap.getChildren()){
-                            requests.add(new Request(LandingPage.curuser, messages.getKey(), messages.getValue().toString()));
+                        for(DataSnapshot ds:snap.getChildren()){
+                            for(DataSnapshot s: ds.getChildren()){
+                                requests.add(new Request(LandingPage.curuser,ds.getKey(),s.getValue().toString()));
+                                System.out.println("This is the message: "+s.getValue().toString()+" this is the key:"+ds.getKey().toString());
+                            }
                         }
                     }
                 }
@@ -67,13 +70,16 @@ public class MyRentRequests extends AppCompatActivity implements RemoveRequest{
     public void remove(Request request) {
         String to = request.getTo();
         String message = request.getMessage()+"//Request removed";
-        db.child("from").child(LandingPage.curuser).child(to).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+        int len = LandingPage.curuser.length()+(" has requested to rent the property at Address : ".length());
+        System.out.println("this is the substring:"+request.getMessage().substring(len)+"$");
+        db.child("from").child(LandingPage.curuser).child(to).child(request.getMessage().substring(len)).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 Toast.makeText(MyRentRequests.this,"Request removed",Toast.LENGTH_SHORT).show();
             }
         });
-        db.child("to").child(to).child(LandingPage.curuser).setValue(message);
+        System.out.println(message);
+        db.child("to").child(to).child(LandingPage.curuser).child(request.getMessage().substring(len)).setValue(message);
         requests.remove(request);
         adapter.notifyDataSetChanged();
     }
