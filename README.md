@@ -1,6 +1,6 @@
 # Rental_agency
 **Keywords:** Android Studio, Java, Firebase, Realtime-Database<br>
-## Table Structure (NoSQL)
+## Table Structure (Using Firebase Realtime Database NoSQL)
 - root table
   - user_list
     - firebase_generated  unique identifier for each user
