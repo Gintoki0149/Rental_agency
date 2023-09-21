@@ -1,6 +1,7 @@
 package com.example.rentalagency;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,12 +28,24 @@ public class MyRentRequestsAdapter extends RecyclerView.Adapter<MyRentRequestsVi
 
     @Override
     public void onBindViewHolder(@NonNull MyRentRequestsViewHolder holder, int position) {
-        holder.tovalue.setText(requests.get(position).getTo());
-        holder.propertyvalue.setText(requests.get(position).getMessage());
+        Request theRequest = requests.get(position);
+        holder.tovalue.setText(theRequest.getTo());
+        holder.propertyvalue.setText(theRequest.getMessage());
+        holder.requeststatus.setText(theRequest.getStatus());
+        switch(holder.requeststatus.getText().toString()){
+            case "Accepted":
+                holder.cardView.setCardBackgroundColor(Color.GREEN);
+                break;
+            case "Rejected":
+                holder.cardView.setCardBackgroundColor(Color.RED);
+                break;
+            default:
+                holder.cardView.setCardBackgroundColor(Color.rgb(255,255,204));
+        }
         holder.del.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                removeRequest.remove(requests.get(position));
+                removeRequest.remove(theRequest);
             }
         });
     }

@@ -1,59 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/myrequestsviewholder"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-
-    <TextView
-        android:id="@+id/to"
-        android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="10dp">
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="70dp"
-        android:text="TO:"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginTop="10dp">
+        <TextView
+            android:id="@+id/to"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TO:"/>
 
-    <TextView
-        android:id="@+id/to_value"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="70dp"
-        android:text=""
-        app:layout_constraintEnd_toStartOf="@+id/property_value"
-        app:layout_constraintStart_toStartOf="@+id/property_value"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/to_value"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_toEndOf="@+id/to"
+            android:inputType="textMultiLine"
+            android:text=""/>
 
-    <TextView
-        android:id="@+id/message"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="35dp"
-        android:inputType="textMultiLine"
-        android:minHeight="48dp"
-        android:text="Message:"
-        app:layout_constraintBaseline_toBaselineOf="@+id/property_value"
-        app:layout_constraintStart_toStartOf="parent" />
+        <TextView
+            android:id="@+id/message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/to_value"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="15dp"
+            android:inputType="textMultiLine"
+            android:text="Message:"/>
 
-    <TextView
-        android:id="@+id/property_value"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="19dp"
-        android:layout_marginTop="30dp"
-        android:text=""
-        app:layout_constraintStart_toEndOf="@+id/message"
-        app:layout_constraintTop_toBottomOf="@+id/to_value" />
+        <TextView
+            android:id="@+id/property_value"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_below="@+id/message"
+            android:text=""/>
 
-    <Button
-        android:id="@+id/delete"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="171dp"
-        android:layout_marginEnd="27dp"
-        android:text="Delete"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/request_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_below="@+id/property_value"
+            android:text="Status:"/>
+
+        <TextView
+            android:id="@+id/request_status_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_below="@+id/property_value"
+            android:layout_toEndOf="@+id/request_status"
+            android:text=""/>
+
+        <Button
+            android:id="@+id/delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginBottom="5dp"
+            android:layout_below="@+id/request_status"
+            android:text="Delete"/>
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

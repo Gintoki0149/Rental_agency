@@ -4,10 +4,14 @@ public class Request {
     private String From;
     private String To;
     private String message;
-    public Request(String From,String To,String message){
+    private String address;
+    private String status;
+    public Request(String From,String To,String message, String address, String status){
         this.From = From;
         this.To = To;
         this.message = message;
+        this.address = address;
+        this.status = status;
     }
 
     public String getFrom() {
@@ -21,4 +25,8 @@ public class Request {
     public String getMessage() {
         return message;
     }
+
+    public String getAddress(){return address;}
+
+    public String getStatus(){return status;}
 }

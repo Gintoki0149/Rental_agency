@@ -65,6 +65,13 @@ public class LandingPage extends AppCompatActivity {
             }
         });
 
+        approverentrequests.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LandingPage.this,ApproveRentRequest.class));
+            }
+        });
+
         myrentrequests.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

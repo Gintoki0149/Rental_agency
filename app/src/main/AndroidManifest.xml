@@ -13,6 +13,13 @@
         android:theme="@style/Theme.RentalAgency"
         tools:targetApi="33">
         <activity
+            android:name=".ApproveRentRequest"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".MyRentRequests"
             android:exported="false">
             <meta-data

@@ -41,11 +41,12 @@ public class MyRentRequests extends AppCompatActivity implements RemoveRequest{
                 System.out.println("This is snapshot.getKey:"+snapshot.getChildrenCount());
                 System.out.println("This is snapshot.getchildren:"+snapshot.getChildren());
                 requests.clear();
-                for(DataSnapshot snap:snapshot.getChildren()){
+                for(DataSnapshot snap:snapshot.getChildren()){  //senders
+                    Log.d("rhs","receiver: "+LandingPage.curuser+" sngp.getKey(): "+snap.getKey());
                     if(snap.getKey().toString().compareTo(LandingPage.curuser) == 0){
-                        for(DataSnapshot ds:snap.getChildren()){
-                            for(DataSnapshot s: ds.getChildren()){
-                                requests.add(new Request(LandingPage.curuser,ds.getKey(),s.getValue().toString()));
+                        for(DataSnapshot ds:snap.getChildren()){    //receivers
+                            for(DataSnapshot s: ds.getChildren()){  //address
+                                requests.add(new Request(LandingPage.curuser,ds.getKey(),s.child("request").getValue().toString(),s.getKey(),s.child("status").getValue().toString()));
                                 System.out.println("This is the message: "+s.getValue().toString()+" this is the key:"+ds.getKey().toString());
                             }
                         }
@@ -69,17 +70,21 @@ public class MyRentRequests extends AppCompatActivity implements RemoveRequest{
     @Override
     public void remove(Request request) {
         String to = request.getTo();
-        String message = request.getMessage()+"//Request removed";
-        int len = LandingPage.curuser.length()+(" has requested to rent the property at Address : ".length());
+        String from = request.getFrom();
+        String message = request.getMessage();
+        int len = from.length()+(" has requested to rent the property at Address : ".length());
         System.out.println("this is the substring:"+request.getMessage().substring(len)+"$");
-        db.child("from").child(LandingPage.curuser).child(to).child(request.getMessage().substring(len)).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+        db.child("from").child(from).child(to).child(request.getAddress()).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
+                System.out.println("This is the address substring: "+request.getMessage().substring(len,len+request.getAddress().length()));
                 Toast.makeText(MyRentRequests.this,"Request removed",Toast.LENGTH_SHORT).show();
             }
         });
-        System.out.println(message);
-        db.child("to").child(to).child(LandingPage.curuser).child(request.getMessage().substring(len)).setValue(message);
+        System.out.println(message+"//Request Removed");
+        if(request.getStatus().compareTo("Pending") == 0) {
+            db.child("to").child(to).child(from).child(request.getAddress()).child("status").setValue("Removed");
+        }
         requests.remove(request);
         adapter.notifyDataSetChanged();
     }
